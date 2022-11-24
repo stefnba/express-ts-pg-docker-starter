@@ -22,6 +22,12 @@ tsc --init
 eslint --init
 ```
 
+### Configure GitHub
+
+To follow best practices, the main branch should be protected to prevent commits. Only Pull Requests can merge into main. Inside the repo on GitHub, click on `Settings` and then `Branches` to add a branch protection rule and click the following 2 options:
+- `Require a pull request before merging`
+- `Do not allow bypassing the above settings`
+
 Can also use VS Code command: `Restart ESLint Server`
 
 Additional links with more info:
@@ -34,9 +40,10 @@ Additional links with more info:
 
 The suggest git strategy is to use the Gitflow workflow. Fore more details, see this [article](https://nvie.com/posts/a-successful-git-branching-model/) or this [article](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
-### Main or Master branch
-
-### Development branch
+There are 3 key branches
+- Main
+- Dev
+- Feature branches
 
 ## Deployment
 
