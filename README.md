@@ -1,4 +1,4 @@
-# starter template for Node & Express, TypeScript, Postgres and Docker
+# Starter template for Node & Express with TypeScript, Postgres and Docker
 
 ## Setting up project
 
