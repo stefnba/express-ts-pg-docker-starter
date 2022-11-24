@@ -1,15 +1,22 @@
-# Starter template for Node & Express, TypeScript, Postgres and Docker
+# starter template for Node & Express, TypeScript, Postgres and Docker
 
 ## Setting up project
 
--   [Link to Tutorial](https://cloudnweb.dev/2019/09/building-a-production-ready-node-js-app-with-typescript-and-docker/)
+-   [Link to complete Tutorial](https://cloudnweb.dev/2019/09/building-a-production-ready-node-js-app-with-typescript-and-docker/)
 
-npm init --yes
+#### Setup Node
+
+```bash
+npm init -y
+```
+
+#### Setup TypeScript
+
+```bash
 tsc --init
+```
 
-### ESLint and Prettier
-
-To activate ESLint, run the following command in the terminal:
+#### Activate ESLint
 
 ```bash
 eslint --init
@@ -17,13 +24,15 @@ eslint --init
 
 Can also use VS Code command: `Restart ESLint Server`
 
+Additional links with more info:
+
 -   https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/
 -   https://blog.logrocket.com/linting-typescript-using-eslint-and-prettier/
 -   https://khalilstemmler.com/blogs/tooling/prettier/
 
 ## Git Workflows
 
-Fore more details, see this [article](https://nvie.com/posts/a-successful-git-branching-model/)
+The suggest git strategy is to use the Gitflow workflow. Fore more details, see this [article](https://nvie.com/posts/a-successful-git-branching-model/) or this [article](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).
 
 ### Main or Master branch
 
