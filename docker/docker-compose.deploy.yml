@@ -1,0 +1,10 @@
+##
+# Run production container on webserver
+# Extends docker-compose.prod.yml and uses image from Docker Hub instead of building it locally
+##
+
+version: '3.8'
+
+services:
+    app:
+        image: stefnba/starter-ts-express-pg-docker:1.0.0
