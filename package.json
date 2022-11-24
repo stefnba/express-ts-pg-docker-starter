@@ -1,0 +1,20 @@
+{
+  "name": "express-ts-pg-docker-starter",
+  "version": "1.0.0",
+  "description": "## Setting up project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefnba/express-ts-pg-docker-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stefnba/express-ts-pg-docker-starter/issues"
+  },
+  "homepage": "https://github.com/stefnba/express-ts-pg-docker-starter#readme"
+}
