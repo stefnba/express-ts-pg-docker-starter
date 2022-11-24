@@ -22,12 +22,6 @@ tsc --init
 eslint --init
 ```
 
-### Configure GitHub
-
-To follow best practices, the main branch should be protected to prevent commits. Only Pull Requests can merge into main. Inside the repo on GitHub, click on `Settings` and then `Branches` to add a branch protection rule and click the following 2 options:
-- `Require a pull request before merging`
-- `Do not allow bypassing the above settings`
-
 Can also use VS Code command: `Restart ESLint Server`
 
 Additional links with more info:
@@ -35,6 +29,13 @@ Additional links with more info:
 -   https://khalilstemmler.com/blogs/typescript/eslint-for-typescript/
 -   https://blog.logrocket.com/linting-typescript-using-eslint-and-prettier/
 -   https://khalilstemmler.com/blogs/tooling/prettier/
+
+### Configure GitHub
+
+To follow best practices, the main branch should be protected to prevent commits. Only Pull Requests can merge into main. Inside the repo on GitHub, click on `Settings` and then `Branches` to add a branch protection rule and click the following 2 options:
+- `Require a pull request before merging`
+- `Do not allow bypassing the above settings`
+
 
 ## Git Workflows
 
