@@ -13,6 +13,8 @@ services:
         networks:
             - reverse-proxy
             - default
+        expose:
+            - ${APP_PORT}
     db:
         networks:
             - default
