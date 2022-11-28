@@ -11,6 +11,7 @@ const { APP_PORT } = process.env;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('trust proxy', true); // get real ip
 
 app.get('/users', async (req: Request, res: Response) => {
     const users = await db.manyOrNone('SELECT * FROM users');
