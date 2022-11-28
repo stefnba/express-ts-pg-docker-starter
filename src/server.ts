@@ -18,7 +18,9 @@ app.get('/users', async (req: Request, res: Response) => {
 });
 
 app.get('/', (req: Request, res: Response) => {
-    res.send('Hello World!!');
+    res.send(
+        `Hello World! This app is running on ${APP_PORT} and your IP is ${req.ip}`
+    );
 });
 
 app.listen(APP_PORT, () => {
