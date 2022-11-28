@@ -1,5 +1,5 @@
 {
-    "name": "starter-ts-express-pg-docker",
+    "name": "express-ts-pg-docker-starter",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
