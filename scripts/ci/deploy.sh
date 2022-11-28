@@ -7,7 +7,13 @@
 cd $(dirname $0)
 
 env_file="../../.env"
-files=("../..//./docker/docker-compose.yml" "../..//./docker/docker-compose.prod.yml" "../..//./docker/docker-compose.deploy.yml" "./release.sh" "../..//./scripts/db/*")
+files=(
+    "../..//./docker/docker-compose.yml"
+    "../..//./docker/docker-compose.prod.yml"
+    "../..//./docker/docker-compose.deploy.yml"
+    "./publish.sh"
+    "../..//./scripts/db/*"
+)
 
 # Read .env file
 source $env_file
