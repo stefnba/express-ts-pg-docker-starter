@@ -11,7 +11,7 @@ files=()
 
 while read -r line; 
 do
-    files+=" ${line//\"/}"
+    files+=" ../..//./${line//\"/}"
 done < $file_path
 
 echo $files
