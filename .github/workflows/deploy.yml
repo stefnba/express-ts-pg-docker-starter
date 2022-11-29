@@ -2,8 +2,9 @@ name: Deploy to Production
 
 on:
     push:
-        tags:
-            - '*'
+        branches: ['main']
+    pull_request:
+        branches: ['main']
 jobs:
     deploy:
         runs-on: ubuntu-latest
