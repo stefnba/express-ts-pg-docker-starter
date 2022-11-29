@@ -76,3 +76,11 @@ docker push [username]/[image-name]:[tag]
 ## Simplify image build and push
 
 To make the build and push worfklow more efficient, a `build.sh` script is added to the `/scripts/docker` folder.
+
+## GitHub Action
+
+### Test locally
+
+```bash
+ act -j deploy --secret-file .env
+```

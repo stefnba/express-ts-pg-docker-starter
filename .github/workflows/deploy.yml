@@ -8,8 +8,9 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
+
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
             - name: Create SSH key
               run: |
                   mkdir -p ~/.ssh/
@@ -22,6 +23,13 @@ jobs:
             - name: Copy Files to Server
               run: |
                   ${GITHUB_WORKSPACE}/scripts/deploy/copy.sh $SSH_USER $SSH_HOST $SSH_DIR
+              env:
+                  SSH_HOST: ${{secrets.SSH_HOST}}
+                  SSH_DIR: ${{secrets.SSH_DIR}}
+                  SSH_USER: ${{secrets.SSH_USER}}
+            - name: Publish
+              run: |
+                  ssh $SSH_USER@$SSH_HOST $SSH_DIR/scripts/deploy/publish.sh
               env:
                   SSH_HOST: ${{secrets.SSH_HOST}}
                   SSH_DIR: ${{secrets.SSH_DIR}}
