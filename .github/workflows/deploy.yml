@@ -24,7 +24,7 @@ jobs:
             #       ${GITHUB_WORKSPACE}/scripts/ci/deploy.sh
             - name: Copy Files to Server
               run: |
-                  rsync ${GITHUB_WORKSPACE}/LICENSE "$SSH_USER@$SSH_HOST:$SSH_DIR" -v -R
+                  rsync ${GITHUB_WORKSPACE}//./LICENSE "$SSH_USER@$SSH_HOST:$SSH_DIR" -v -R
               env:
                   SSH_HOST: ${{secrets.SSH_HOST}}
                   SSH_DIR: ${{secrets.SSH_DIR}}
