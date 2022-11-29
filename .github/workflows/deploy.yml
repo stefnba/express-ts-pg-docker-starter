@@ -1,0 +1,23 @@
+name: Deploy to Production
+
+on:
+    push:
+        tags:
+            - '*'
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: Create SSH key
+              run: |
+                  mkdir -p ~/.ssh/
+                  echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+                  sudo chmod 600 ~/.ssh/id_rsa
+                  ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
+              env:
+                  SSH_HOST: ${{secrets.SSH_HOST}}
+                  SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+            - name: Connect to SSH
+              run: |
+                  ssh ${{secrets.SSH_USER}}@${{secrets.SSH_HOST}}
