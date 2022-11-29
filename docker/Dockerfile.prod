@@ -22,6 +22,6 @@ RUN npm install --only=production
 
 COPY --from=0 /app/dist ./src
 
-EXPOSE 8000
+# EXPOSE 8000
 
 CMD ["node", "src/server.js"]
