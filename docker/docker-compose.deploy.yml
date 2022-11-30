@@ -7,4 +7,4 @@ version: '3.8'
 
 services:
     app:
-        image: stefnba/express-ts-pg-docker-starter:1.0.0
+        image: ${DOCKER_USER}/${DOCKER_IMAGE_NAME}
