@@ -8,7 +8,9 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
-
+        env:
+            DOCKER_USER: ${{ secrets.DOCKER_USER }}
+            DOCKER_IMAGE_NAME: ${{ github.event.repository.name }}
         steps:
             - uses: actions/checkout@v3
             - name: Create SSH key
