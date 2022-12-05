@@ -1,9 +1,8 @@
-name: Build and Publish Docker Image
-
+name: build-publish-image
+run-name: Build and Publish Docker Image
 on:
     push:
         branches: ['main']
-
 jobs:
     build:
         runs-on: ubuntu-latest
