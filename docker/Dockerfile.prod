@@ -1,4 +1,5 @@
-FROM node:18-alpine3.15
+# stage base
+FROM node:18-alpine3.15 as base
 
 WORKDIR /app
 
@@ -11,8 +12,8 @@ COPY . .
 
 RUN npm run build
 
-# stage two
-FROM node:18-alpine3.15
+# stage prod
+FROM node:18-alpine3.15 as prod
 
 WORKDIR /app
 
@@ -20,7 +21,7 @@ COPY package*.json ./
 
 RUN npm install --only=production
 
-COPY --from=0 /app/dist ./src
+COPY --from=base /app/dist ./src
 
 # EXPOSE 8000
 
