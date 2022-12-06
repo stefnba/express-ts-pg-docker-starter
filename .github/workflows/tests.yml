@@ -10,17 +10,6 @@ jobs:
     tests:
         name: 'Node.js v${{ matrix.node }}'
         runs-on: ubuntu-latest
-        # services:
-        #     postgres:
-        #         image: postgres
-        #         env:
-        #             POSTGRES_PASSWORD: postgres
-        #         # Set health checks to wait until postgres has started
-        #         options: >-
-        #             --health-cmd pg_isready
-        #             --health-interval 10s
-        #             --health-timeout 5s
-        #             --health-retries 5
         strategy:
             matrix:
                 node:
@@ -31,15 +20,24 @@ jobs:
             DB_HOST: localhost
             DB_PORT: 5432
             DB_NAME: app_db
+            DB_SCHEMA: public
+            DB_ADMIN_USER: admin
+            DB_ADMIN_PASSWORD: password
+            DB_APP_USER: app
+            DB_APP_PASSWORD: password
         steps:
             - uses: actions/checkout@v3
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v3
               with:
                   node-version: ${{ matrix.node-version }}
-            - run: npm install
-            - name: Run Postgres container
-              run: docker run --name db -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres -v ./scripts/db:/docker-entrypoint-initdb.d/
-            - run: docker logs db
+            - name: Install Dependencies
+              run: npm install
+            - run: touch .env
+              name: Create dummy .env # required to prevent error in docker-compose.yml app service for .evn file
+            - name: Start DB container
+              run: npm run docker:dev db
             - name: Apply DB migrations
               run: npm run migrate up
+            - name: Run Tests
+              run: npm test
