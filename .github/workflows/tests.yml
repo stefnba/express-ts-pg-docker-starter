@@ -38,5 +38,5 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - run: npm install
-            - run: docker run --name "db" -e POSTGRES_PASSWORD={{ env.DB_ROOT_PASSWORD }} -p 5432:5432 -d postgres -v "./scripts/db:/docker-entrypoint-initdb.d/"
+            - run: docker run --name db -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres -v ./scripts/db:/docker-entrypoint-initdb.d/
             # - run: npm test
