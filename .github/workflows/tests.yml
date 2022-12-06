@@ -27,7 +27,7 @@ jobs:
                     - 18
         env:
             APP_PORT: 9999
-            DB_Host: postgres
+            DB_HOST: postgres
             DB_PORT: 5432
             DB_NAME: app_db
         steps:
