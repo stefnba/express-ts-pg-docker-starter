@@ -38,6 +38,7 @@ jobs:
             - name: Start DB container
               run: npm run docker:dev db
             - run: docker ps
+            - run: docker logs express-ts-pg-docker-starter-db-1
 #             - name: Apply DB migrations
 #               run: npm run migrate up
 #             - name: Run Tests
