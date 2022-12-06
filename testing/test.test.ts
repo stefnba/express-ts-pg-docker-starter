@@ -19,7 +19,7 @@ describe('TESTS', () => {
     describe('USERS', () => {
         it('SHOULD LIST users', async () => {
             const res = await request.get('/users');
-
+            console.log(res.body);
             expect(res.status).to.eql(200);
         });
     });
