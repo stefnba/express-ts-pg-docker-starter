@@ -10,12 +10,26 @@ jobs:
     tests:
         name: 'Node.js v${{ matrix.node }}'
         runs-on: ubuntu-latest
+        services:
+            postgres:
+                image: postgres
+                env:
+                    POSTGRES_PASSWORD: postgres
+                # Set health checks to wait until postgres has started
+                options: >-
+                    --health-cmd pg_isready
+                    --health-interval 10s
+                    --health-timeout 5s
+                    --health-retries 5
         strategy:
             matrix:
                 node:
                     - 18
         env:
             APP_PORT: 9999
+            DB_Host: postgres
+            DB_PORT: 5432
+            DB_NAME: app_db
         steps:
             - uses: actions/checkout@v3
             - name: Use Node.js ${{ matrix.node-version }}
