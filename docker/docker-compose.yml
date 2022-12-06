@@ -14,7 +14,6 @@ services:
         depends_on:
             - db
         restart: always
-
     db:
         image: postgres:14.5-alpine
         restart: always

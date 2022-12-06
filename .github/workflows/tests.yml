@@ -26,8 +26,9 @@ jobs:
                 node:
                     - 18
         env:
+            DB_ROOT_PASSWORD: password
             APP_PORT: 9999
-            DB_HOST: postgres
+            DB_HOST: localhost
             DB_PORT: 5432
             DB_NAME: app_db
         steps:
@@ -37,5 +38,5 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - run: npm install
-            - run: npm run docker:dev db
+            - run: docker run --name "db" -e POSTGRES_PASSWORD={{ env.DB_ROOT_PASSWORD }} -p 5432:5432 -d postgres -v "./scripts/db:/docker-entrypoint-initdb.d/"
             # - run: npm test
