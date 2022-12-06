@@ -40,5 +40,6 @@ jobs:
             - run: npm install
             - name: Run Postgres container
               run: docker run --name db -e POSTGRES_PASSWORD=password -p 5432:5432 -d postgres -v ./scripts/db:/docker-entrypoint-initdb.d/
-            - run: docker ps
-            - run: docker exec -it db sh ls
+            - run: docker logs db
+            - name: Apply DB migrations
+              run: npm run migrate up
