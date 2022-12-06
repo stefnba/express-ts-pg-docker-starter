@@ -23,6 +23,8 @@ describe('TESTS', () => {
             request
                 .get('/users')
                 .then((res) => {
+                    console.log(res.body);
+                    console.log(res);
                     expect(res.status).to.eql(200);
                     expect(res.body).to.be.an('array');
                 })
