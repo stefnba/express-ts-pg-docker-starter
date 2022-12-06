@@ -1,4 +1,5 @@
-name: Tests
+name: tests
+run-name: Run Tests
 on:
     push:
         branches: [main]
@@ -6,14 +7,12 @@ on:
         branches: [main]
 
 jobs:
-    test:
+    tests:
         name: 'Node.js v${{ matrix.node }}'
         runs-on: ubuntu-latest
         strategy:
             matrix:
                 node:
-                    - 14
-                    - 16
                     - 18
         steps:
             - uses: actions/checkout@v3
