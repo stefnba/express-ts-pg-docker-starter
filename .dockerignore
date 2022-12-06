@@ -2,7 +2,7 @@ dist
 node_modules
 npm-debug.log
 .env
-Dockerfile
+Dockerfile*
 .dockerignore
 .git
 .gitignore
@@ -16,3 +16,6 @@ README.md
 .DS_Store
 .prettierignore
 *.code-workspace
+.github
+deploy
+scripts
