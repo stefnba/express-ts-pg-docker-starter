@@ -1,16 +1,29 @@
 import { mocha, chai, request } from '../_testing';
 
-mocha.describe.only('TESTS', () => {
-    mocha.it('/', async () => {
-        const res = await request.get('/');
+const { it, describe } = mocha;
+const { expect } = chai;
 
-        chai.expect(res.status).to.eql(200);
-        chai.expect(res.text).to.have.string('Hello World');
+describe('TESTS', () => {
+    describe('HOME', () => {
+        it('SHOULD PRINT Hello World', async () => {
+            request.get('/').end((_, res) => {
+                expect(res.status).to.eql(200);
+                expect(res.text).to.have.string('Hello World');
+            });
+        });
     });
-    mocha.it('/users', async () => {
-        const res = await request.get('/users');
 
-        chai.expect(res.status).to.eql(200);
-        chai.expect(res.body).to.be.an('array');
+    describe('USERS', () => {
+        it('SHOULD LIST users', async () => {
+            request
+                .get('/users')
+                .then((res) => {
+                    expect(res.status).to.eql(200);
+                    expect(res.body).to.be.an('array');
+                })
+                .catch((error) => {
+                    throw error;
+                });
+        });
     });
 });
