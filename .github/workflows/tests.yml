@@ -14,6 +14,8 @@ jobs:
             matrix:
                 node:
                     - 18
+        env:
+            APP_PORT: 9999
         steps:
             - uses: actions/checkout@v3
             - name: Use Node.js ${{ matrix.node-version }}
@@ -21,5 +23,4 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - run: npm install
-            - run: npm run build --if-present
             - run: npm test
