@@ -37,7 +37,8 @@ jobs:
               name: Create dummy .env # required to prevent error in docker-compose.yml app service for .evn file
             - name: Start DB container
               run: npm run docker:dev db
-            - name: Apply DB migrations
-              run: npm run migrate up
-            - name: Run Tests
-              run: npm test
+            - run: docker ps
+#             - name: Apply DB migrations
+#               run: npm run migrate up
+#             - name: Run Tests
+#               run: npm test
