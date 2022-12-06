@@ -13,11 +13,10 @@
         "migrate": "postgresql-migrate -d src/_db/migration",
         "docker:build": "scripts/docker/build.sh",
         "docker:prod": "docker compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml -f docker/docker-compose.deploy.yml --project-directory . up -d --build --remove-orphans",
-        "docker:test": "docker compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml -f docker/docker-compose.test.yml --project-directory . up -d --build",
+        "docker:test": "docker compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml -f docker/docker-compose.test.yml --project-directory . up -d --build --force-recreate",
         "docker:dev": "docker compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml --project-directory . up -d --build --force-recreate ",
         "deploy": "scripts/deploy/deploy.sh",
-        "test": "mocha -r ts-node/register src/**/*.test.ts --exit",
-        "test:prod": "mocha dist/**/*.test.js --exit"
+        "test": "mocha -r ts-node/register testing/**/*.test.ts --exit"
     },
     "keywords": [],
     "author": "",
