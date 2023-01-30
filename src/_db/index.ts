@@ -1,3 +1,3 @@
-import { pgp, db } from './pg';
+import db from './db';
 
-export { pgp, db };
+export { db };

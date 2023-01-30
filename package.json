@@ -10,7 +10,7 @@
         "copy": "copyfiles -E -u 1 \"src/_db/migration/**\" \"dist\"",
         "clean": "rm -rf dist",
         "build": "npm run clean && tsc -p . && npm run copy",
-        "migrate": "postgresql-migrate -d src/_db/migration",
+        "migrate": "postgresql-migrate -c /src/_db/config.json",
         "docker:build": "scripts/docker/build.sh",
         "docker:prod": "docker compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml -f docker/docker-compose.deploy.yml --project-directory . up -d --build --remove-orphans",
         "docker:test": "docker compose -f docker/docker-compose.yml -f docker/docker-compose.prod.yml -f docker/docker-compose.test.yml --project-directory . up -d --build --force-recreate",
@@ -24,8 +24,8 @@
     "dependencies": {
         "dotenv": "^16.0.3",
         "express": "^4.18.1",
-        "pg-promise": "^10.12.0",
-        "postgresql-migrate": "^2.0.3"
+        "postgresql-migrate": "^0.1.0",
+        "postgresql-node": "^0.1.0"
     },
     "devDependencies": {
         "@types/chai": "^4.3.4",

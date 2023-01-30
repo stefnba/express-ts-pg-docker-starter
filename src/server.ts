@@ -15,7 +15,7 @@ app.set('trust proxy', true); // get real ip
 
 app.get('/users', async (req: Request, res: Response) => {
     try {
-        const users = await db.manyOrNone('SELECT * FROM users');
+        const users = await db.query.find('SELECT * FROM users').many();
         res.json(users);
     } catch (err) {
         res.status(500).send(err);

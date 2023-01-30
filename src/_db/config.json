@@ -6,5 +6,5 @@
         "password": "env:DB_ADMIN_PASSWORD",
         "database": "env:DB_NAME"
     },
-    "typesFile": "../models.d.ts"
+    "typesFile": "./models.d.ts"
 }
