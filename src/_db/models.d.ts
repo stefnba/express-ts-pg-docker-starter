@@ -1,4 +1,5 @@
-export type users = { 
-id: number;
-username: string;
-email: string; }
+export type users = {
+    id: number;
+    username: string;
+    email: string;
+};
