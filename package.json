@@ -7,7 +7,7 @@
         "dev": "nodemon src/server.ts",
         "debug": "nodemon --exec \"node --inspect-brk=0.0.0.0:9229 --require ts-node/register src/server.ts\"",
         "start": "ts-node dist/server.js",
-        "copy": "copyfiles -E -u 1 \"src/_db/migration/**\" \"dist\"",
+        "copy": "copyfiles --all --up 1 --exclude \"./**/*.{ts,tsx}\" \"./src/**/*\" ./dist",
         "clean": "rm -rf dist",
         "build": "npm run clean && tsc -p . && npm run copy",
         "migrate": "postgresql-migrate -c /src/_db/config.json",
