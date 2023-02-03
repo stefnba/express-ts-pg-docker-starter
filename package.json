@@ -17,6 +17,7 @@
         "docker:dev": "docker compose -f docker/docker-compose.yml -f docker/docker-compose.dev.yml --project-directory . up -d --build --force-recreate ",
         "deploy": "scripts/deploy/deploy.sh",
         "test": "mocha",
+        "format": "prettier --write \"src/**/*.ts\"",
         "lint": "eslint -c .eslintrc --ext .ts src",
         "prepare": "npm run build",
         "preversion": "npm run lint",
