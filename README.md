@@ -41,6 +41,32 @@ To follow best practices, the main branch should be protected to prevent commits
 
 ## Development & Testing
 
+### Local development using Docker or Nodemon
+
+The devevelopment environment can be containerized with docker. Automatically rebuilds the image if file changes are witnessed. The following command also spins up a Postgresql database container.
+
+```sh
+npm run docker:dev
+```
+
+Using docker will log everything to the docker container console. It might be easier to run development locally on the host. In this case, Nodemon is used to watch for file changes in `/src` folder and automatically restart the development server.
+
+In this case, we also need a database instance.
+
+To start the database, first run:
+
+```sh
+npm run docker:dev db
+```
+
+To start the dev server, run:
+
+```sh
+npm run dev
+```
+
+### Testing with Mocha and Chai
+
 ## Git Workflows
 
 The suggested git strategy is to use the Gitflow workflow. Fore more details, see [this](https://nvie.com/posts/a-successful-git-branching-model/) or [this](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) article.
@@ -59,7 +85,7 @@ To come
 
 ## Build image
 
-Run the following command to buld and tag a Docker image:
+Run the following command to build and tag a Docker image:
 
 ```bash
 docker build . -f [path-to-Dockerfile] -t [username]/[image-name]:[tag]
@@ -79,7 +105,7 @@ To make the build and push worfklow more efficient, a `build.sh` script is added
 
 ## GitHub Action
 
-### Test locally
+### Test Actions locally
 
 ```bash
  act -j deploy --secret-file .env

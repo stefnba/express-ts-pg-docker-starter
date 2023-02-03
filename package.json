@@ -1,6 +1,6 @@
 {
     "name": "express-ts-pg-docker-starter",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -19,8 +19,8 @@
         "test": "mocha"
     },
     "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "author": "Stefan Bauer",
+    "license": "MIT",
     "dependencies": {
         "dotenv": "^16.0.3",
         "express": "^4.18.1",
