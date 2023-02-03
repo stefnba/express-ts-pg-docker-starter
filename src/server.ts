@@ -14,13 +14,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('trust proxy', true); // get real ip
 
 app.get('/users', async (req: Request, res: Response) => {
-    const users = await db.manyOrNone('SELECT * FROM users');
-    res.json(users);
+    try {
+        const users = await db.query.find('SELECT * FROM users').many();
+        res.json(users);
+    } catch (err) {
+        res.status(500).send(err);
+    }
 });
 
 app.get('/', (req: Request, res: Response) => {
     res.send(
-        `Hello World!<br/>This app is running on port ${APP_PORT} and your IP is ${req.ip}`
+        `Hello World!<br/>This app is running on port ${APP_PORT} and your IP is ${req.ip} <br/> Navigate to /users to list users from the database.`
     );
 });
 

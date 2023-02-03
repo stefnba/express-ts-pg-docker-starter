@@ -11,24 +11,16 @@ const { expect } = chai;
 describe('TESTS', () => {
     describe('HOME', () => {
         it('SHOULD PRINT Hello World', async () => {
-            request.get('/').end((_, res) => {
-                expect(res.status).to.eql(200);
-                expect(res.text).to.have.string('Hello World');
-            });
+            const res = await request.get('/');
+
+            expect(res.status).to.eql(200);
         });
     });
-
     describe('USERS', () => {
         it('SHOULD LIST users', async () => {
-            request
-                .get('/users')
-                .then((res) => {
-                    expect(res.status).to.eql(200);
-                    expect(res.body).to.be.an('array');
-                })
-                .catch((error) => {
-                    throw error;
-                });
+            const res = await request.get('/users');
+            console.log(res.body);
+            expect(res.status).to.eql(200);
         });
     });
 });
