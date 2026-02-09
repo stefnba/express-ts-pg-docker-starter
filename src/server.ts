@@ -1,13 +1,10 @@
 import express, { Application, Request, Response } from 'express';
 import bodyParser from 'body-parser';
-import dotenv from 'dotenv';
-import { db } from './_db';
 
-dotenv.config();
+import { db } from './_db';
+import { CONFIG } from './_app';
 
 const app: Application = express();
-
-const { APP_PORT } = process.env;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -24,12 +21,12 @@ app.get('/users', async (req: Request, res: Response) => {
 
 app.get('/', (req: Request, res: Response) => {
     res.send(
-        `Hello World!<br/>This app is running on port ${APP_PORT} and your IP is ${req.ip} <br/> Navigate to /users to list users from the database.`
+        `Hello World!<br/>This app is running on port ${CONFIG.app.port} and your IP is ${req.ip} <br/> Navigate to /users to list users from the database.`
     );
 });
 
-app.listen(APP_PORT, () => {
-    console.log(`Server is running on PORT ${APP_PORT}`);
+app.listen(CONFIG.app.port, () => {
+    console.log(`Server is running on PORT ${CONFIG.app.port}`);
 });
 
 export default app;
